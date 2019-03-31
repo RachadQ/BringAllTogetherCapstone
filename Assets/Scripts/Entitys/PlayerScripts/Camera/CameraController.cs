@@ -12,16 +12,7 @@ public class CameraController
         cam = Camera.main;
         target = player;
     }
-    void Start()
-    {
-       // cam = Camera.main;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 
     public void CameraMovement()
     {
