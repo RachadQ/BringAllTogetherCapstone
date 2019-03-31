@@ -35,16 +35,16 @@ public class Player : Entity
         CurrentLife = MaximumLife;
         movement = new PlayerMovement(this.gameObject);
         cam = new CameraController(this.transform);
-        Debug.Log(CurrentLife);
+
     }
 
     // Update is called once per frame
    void Update()
     {
-       
+
+
+
         
-        
-      
     }
     private void FixedUpdate()
     {

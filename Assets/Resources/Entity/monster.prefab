@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 785040008787042823}
   - component: {fileID: 785040008787042820}
   m_Layer: 0
-  m_Name: Text
+  m_Name: NameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 785040008787042810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 211627723308040241}
   m_RootOrder: 0
@@ -329,6 +329,7 @@ MonoBehaviour:
     Dodge: 0
   enemyui:
     HealthBar: {fileID: 0}
+    name: {fileID: 0}
   monster:
     id: 0
     name: 
@@ -340,7 +341,7 @@ MonoBehaviour:
     defence: 0
     magicDefence: 0
     moveSpeed: 0
-    level: 0
+    level: 40
     dodge: 0
 --- !u!1 &6364925453978649209
 GameObject:
@@ -635,17 +636,17 @@ PrefabInstance:
     - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
         type: 3}
@@ -680,17 +681,17 @@ PrefabInstance:
     - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 1.072
       objectReference: {fileID: 0}
     - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
         type: 3}
@@ -715,12 +716,32 @@ PrefabInstance:
     - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 311310440770421937, guid: 5c10cf20316b0e74c8673b4d06d34c37,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2887682322541853525, guid: 5c10cf20316b0e74c8673b4d06d34c37,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c10cf20316b0e74c8673b4d06d34c37, type: 3}

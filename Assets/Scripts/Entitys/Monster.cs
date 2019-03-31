@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Monster : Entity
 {
-    Player Target;
+    Player target;
 
     public EnemyUi enemyui;
     public MonsterInfo monster;
-    
+    public LootTable MonsterLoot;
     public override int MaximumLife => combatStats.MaxLife + monster.Life;
     public override int CurrentLife { get => base.CurrentLife; set => base.CurrentLife = value; }
 
@@ -20,34 +20,32 @@ public class Monster : Entity
     {
        
         CurrentLife = MaximumLife;
-        
         enemyui = new EnemyUi(this);
-       
-       
-
-       
+            
     }
+
+   
 
     private void FixedUpdate()
     {
+        base.FixedUpdate();
         NameColour();
+     
+
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Damage(5);
-           
-            
-          
-            
-        }
+      
         
        
       
     }
 
+   void EnemyDie()
+    {
+
+    }
     public void NameColour()
     {
         Player[] AllPlayers = GameObject.FindObjectsOfType<Player>();
@@ -58,26 +56,32 @@ public class Monster : Entity
             //if player 3 levels higher
             if (levelDifference >= 6)
             {
-                //blackname
-                enemyui.name.color = Color.black;
+
+                
+                //green name
+                enemyui.name.color = Color.green;
+
 
 
             }
-            if (levelDifference >= 3 && levelDifference < 6)
+            if (levelDifference < 0 && levelDifference > -3)
             {
+                
                 //blackname
                 enemyui.name.color = Color.red;
             }
 
-            else if (levelDifference < 0)
+            else if (levelDifference <= -4)
             {
-              
 
-                //green name
-                enemyui.name.color = Color.green;
+
+                //blackname
+                enemyui.name.color = Color.black;
+
             }
             else if(levelDifference < 4 && levelDifference <= 2)
             {
+                
                 //whiteName
                 enemyui.name.color = Color.white;
             }
@@ -86,23 +90,26 @@ public class Monster : Entity
             
         }
     }
-
-    public void Damage(int amount)
+    public override void Interact()
     {
-       
-        CurrentLife -= amount;
-        if (CurrentLife <= 0)
-        {
-            CurrentLife = 0;
-        }
+        base.Interact();
+        target = FindObjectOfType<Player>();
+        var dmg = target.CalculatePhysicalDamage(this);
+        RecieveDamage(dmg);
+      
+        UpdateHealth(dmg);
+        target.Experience += target.CalculateExpGain(this, dmg);
+        Debug.Log(target.Experience);
+    }
+
+    public void UpdateHealth(int amount)
+    {
+
+        RecieveDamage(amount); 
         enemyui.UpdateUi();
         
     }
 
 
-    public override void Interact()
-    {
-        base.Interact();
-
-    }
+   
 }

@@ -15,7 +15,7 @@ public class Entity : InteractObject
     public virtual byte Xp { get; set; }
     public virtual string EntityName { get; set; }
     public virtual int Level { get; set; }
-
+    public LootTable Loot;
    
  
  
@@ -30,7 +30,7 @@ public class Entity : InteractObject
 
     internal bool sentDeath = false;
 
-    public virtual ulong CalculateExpGain(Entity _target, uint _dmg)
+    public virtual int CalculateExpGain(Entity _target, int _dmg)
     {
 
         // if it is player dont get exp 
@@ -60,10 +60,10 @@ public class Entity : InteractObject
         else if (levelDifference < -5) // close to level (white name)
             exp *= 1.3;
 
-        return (ulong)exp;
+        return (int)exp;
     }
 
-    public uint CalculatePhysicalDamage(Entity _target, bool _canDodge = false)
+    public int CalculatePhysicalDamage(Entity _target, bool _canDodge = false)
     {
         System.Random rnd = new Random();
         var dmg = rnd.Next(combatStats.MinimumDamage, combatStats.MaximumDamage);
@@ -81,7 +81,7 @@ public class Entity : InteractObject
         Debug.Log("player Damage: " + dmg + " attckers level: " + Level + " object attcked level: " + _target.Level);
         //   ulong exp = CalculateExperienceGain(_target, (uint)dmg);
 
-        return (uint)dmg;
+        return (int)dmg;
     }
 
 
@@ -96,22 +96,36 @@ public class Entity : InteractObject
         return bonus;
     }
 
-    public virtual void RecieveDamage(uint _dmg)
+    public virtual void RecieveDamage(int _dmg)
     {
         // if object is alive
         if (Alive)
         {
+            int damage = Math.Min(CurrentLife, _dmg);
             // check if life is greater then damage delt
-            if (CurrentLife > _dmg)
+            if (damage == _dmg)
             {
                 // do damage
-                CurrentLife -= (ushort)_dmg;
+                CurrentLife -= _dmg;
             }
             else
             {
+                Debug.Log("Reachinging");
                 //sett player health to 0
                 CurrentLife = 0;
+                //check if it is a monster
+                if (this is Monster)
+                {
+                    
+                    Loot.ItemLoot();
+                    this.gameObject.SetActive(false);
+
+                }
             }
         }
+       
+       
     }
+
+
 }
