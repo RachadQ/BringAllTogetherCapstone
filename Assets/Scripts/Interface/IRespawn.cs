@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IRespawn 
 {
-   
+    float time { get; set; }
     void Respawn(float SpawnRate);
 
 }

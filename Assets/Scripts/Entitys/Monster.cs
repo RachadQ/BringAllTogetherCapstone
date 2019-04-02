@@ -16,6 +16,8 @@ public class Monster : Entity,IRespawn
     
     public override int Level { get { return monster.Level; } }
 
+    public float time { get; set; }
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -44,9 +46,9 @@ public class Monster : Entity,IRespawn
        
     }
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
-        Respawn2(SpawnRate);
+        Respawn(SpawnRate);
         
 
 
@@ -57,35 +59,7 @@ public class Monster : Entity,IRespawn
 
     }
 
-    public void Respawn2(float Spawn)
-    {
 
-        if (!Alive)
-        {
-            float resTimer = 0;
-            resTimer += Time.deltaTime * 1;
-
-            Debug.Log(resTimer);
-            if (resTimer > Spawn)
-            {
-                //spawn is bug
-                resTimer = 0;
-                CurrentLife = MaximumLife;
-                this.gameObject.GetComponent<MeshCollider>().enabled = true;
-                this.gameObject.GetComponent<Renderer>().enabled = true;
-
-                foreach (GameObject item in Child)
-                {
-                    item.SetActive(true);
-                }
-                enemyui.UpdateUi();
-
-            }
-
-
-        }
-
-    }
  
 public void NameColour()
     {
@@ -137,14 +111,14 @@ public void NameColour()
 
         if (!Alive)
         {
-            float resTimer = 0;
-            resTimer += Time.deltaTime * 1;
+            
+            time += Time.deltaTime * 1;
 
-            Debug.Log(resTimer);
-            if (resTimer > Spawn)
+
+            if (time > Spawn)
             {
                 //spawn is bug
-                resTimer = 0;
+                time = 0;
                 CurrentLife = MaximumLife;
                 this.gameObject.GetComponent<MeshCollider>().enabled = true;
                 this.gameObject.GetComponent<Renderer>().enabled = true;

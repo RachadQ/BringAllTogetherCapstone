@@ -114,10 +114,28 @@ public class Player : Entity
     {
         Level = _level;
         Debug.Log(LevelManager.RequiredExperience(Level));
+        EventManager.TriggerEvent("lvl");
+        EventManager.TriggerEvent("UpStat");
         //ReCalculate(true);
     }
 
+    void OnEnable()
+    {
+        EventManager.StartListening("UpStat", UpdateStats);
+        EventManager.StartListening("lvl", UpdateLevel);
+        //    EventManager.StartListening("InvClick",);
+    }
+    void OnDisable()
+    {
+        EventManager.StopListening("Upstat", UpdateStats);
+        EventManager.StopListening("lvl", UpdateLevel);
 
+    }
+    public void UpdateLevel()
+    {
+        statusUi.UpdateLevel();
+    }
+    #region attribute
     private void UpdateStats()
     {
         statusUi.UpdateStrText();
@@ -126,7 +144,7 @@ public class Player : Entity
         statusUi.UpdateVitText();
         statusUi.UpdateExtrText();
     }
-    #region attribute
+  
     public void PointsOnStrength()
     {
        
@@ -138,7 +156,7 @@ public class Player : Entity
         {
             Character.ExtraStats = 0;
         }
-        //EventManager.TriggerEvent("UpdateStats");
+        EventManager.TriggerEvent("UpStat");
         //Debug.Log("trigger");
         //  Debug.Log(Character.Strength);
         //Debug.Log(Character.ExtraStats);
@@ -155,7 +173,7 @@ public class Player : Entity
         {
             Character.ExtraStats = 0;
         }
-        EventManager.TriggerEvent("UpdateStats");
+        EventManager.TriggerEvent("UpStat");
 
 
     }
@@ -171,7 +189,7 @@ public class Player : Entity
         {
             Character.ExtraStats = 0;
         }
-        EventManager.TriggerEvent("UpdateStats");
+        EventManager.TriggerEvent("UpStat");
 
     }
 
@@ -186,7 +204,7 @@ public class Player : Entity
         {
             Character.ExtraStats = 0;
         }
-        EventManager.TriggerEvent("UpdateStats");
+        EventManager.TriggerEvent("UpStat");
 
     }
 

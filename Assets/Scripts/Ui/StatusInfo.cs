@@ -63,7 +63,10 @@ public class StatusInfo
         guildname.text = owner.guild.Name;
     }
 
-
+    public void UpdateLevel()
+    {
+        level.text = owner.Character.Level.ToString();
+    }
     public void UpdateStrText()
     {
         strength.text = owner.Character.Strength.ToString();
@@ -87,7 +90,16 @@ public class StatusInfo
         extraStats.text = owner.Character.ExtraStats.ToString();
     }
 
+    public void updateStats()
+    {
+        UpdateAgiText();
+        UpdateExtrText();
+        UpdateIntText();
+        UpdateStrText();
+        UpdateVitText();
 
+           
+    }
 
 
     // Start is called before the first frame update

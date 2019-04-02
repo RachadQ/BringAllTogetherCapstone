@@ -68,7 +68,7 @@ public class PersonalUI
     public void UpdateMana()
     {
         Debug.Log(CurrentMana + " " + owner.Mana);
-        CurrentMana = owner.Character.Mana  ;
+        CurrentMana = owner.Character.Mana;
 
         ManaBar.value = CalculateMana();
 
