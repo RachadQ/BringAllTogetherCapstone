@@ -14,7 +14,7 @@ public class SpawnManager
     public Vector3 Position { get { return position; } set { position = value; } }
 
     [SerializeField]
-    private GameObject SpawnPoint = null;
+    private GameObject SpawnPoint;
     public GameObject SpawnPoints { get { return SpawnPoint; } set { SpawnPoint = value; } }
 
     [SerializeField]
@@ -27,7 +27,7 @@ public class SpawnManager
 
 
 
-    public void Init(Transform parent)
+    public void Init(Transform center)
     {
 
         foreach (Spawn spawnObjects in spawnObject)
@@ -35,6 +35,7 @@ public class SpawnManager
 
             for (int i = 0; i < spawnObjects.SpawnAmount; i++)
             {
+                
                 Vector3 position = new Vector3(Random.Range(-size.x / 2, size.x / 2), 1.043333f, Random.Range(-size.z / 2, size.z));
                 spawnObjects.EntityPosition[i] = position;
                 GameObject myMonster = GameObject.Instantiate(spawnObjects.SpawnMonsters, spawnObjects.EntityPosition[i], Quaternion.identity);
@@ -43,16 +44,27 @@ public class SpawnManager
 
         }
     }
+    public Vector3 RandomPoint()
+    {
+        Vector3 position = new Vector3(Random.Range(-size.x / 2, size.x / 2), 1.043333f, Random.Range(-size.z / 2, size.z));
+        return position;
+    }
 
+    private void OnDrawGizmos()
+    {
+
+        Gizmos.color = new Color(1, 0, 0.5f);
+        Gizmos.DrawCube(SpawnPoint.transform.position, size);
+    }
 
     public void Draw()
     {
         // Gizmos.color = new Color(1, 0, 0.5f);
-        if (Application.isPlaying)
-        {
+       
             Gizmos.color = new Color(1, 0, 0.5f);
             Gizmos.DrawCube(SpawnPoint.transform.position, size);
-        }
+
+        
     }
 
 

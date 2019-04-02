@@ -12,7 +12,8 @@ public class NetworkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        createSpawnPoints();
+
+    
     }
 
     // Update is called once per frame
@@ -21,13 +22,14 @@ public class NetworkManager : MonoBehaviour
         
     }
 
+   
     public void createSpawnPoints()
     {
         foreach (SpawnManager Spawns in SpawnPoints)
         {
             Spawns.SpawnPoints = new GameObject();
             Spawns.SpawnPoints.name = "spawnPoint";
-            Spawns.SpawnPoints.transform.position = Spawns.Position;
+            //Spawns.SpawnPoints.transform.position = Spawns.SpawnPoints.transform.position;
             //  transform.position = position;
 
             foreach (Spawn _spawn in Spawns.SpawnObject)
@@ -42,9 +44,9 @@ public class NetworkManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        foreach (SpawnManager spawn in SpawnPoints)
+        foreach (SpawnManager spawns in SpawnPoints)
         {
-            spawn.Draw();
+            spawns.Draw();
         }
     }
 }

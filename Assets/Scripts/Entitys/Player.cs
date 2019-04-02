@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
-   public PlayerMovement movement;
+    public PlayerMovement movement;
     public CameraController cam;
     // character personal stats;
     public PC Character;
@@ -15,7 +15,7 @@ public class Player : Entity
     public override int MaximumLife => combatStats.MaxLife + Character.Life;
     public override int CurrentLife { get => base.CurrentLife; set => base.CurrentLife = value; }
     public override string EntityName { get { return Character.Name; } set { Character.Name = value; } }
-    
+
 
     public override int Level
     { get { return Character.Level; } set { Character.Level = value; Character.Level = value; } }
@@ -28,7 +28,7 @@ public class Player : Entity
     public int Agility { get { return Character.Agility; } set { Character.Agility = value; } }
     public int Intellect { get { return Character.Intellect; } set { Character.Intellect = value; } }
     public int ExtraStats { get { return Character.ExtraStats; } set { Character.ExtraStats = value; } }
-    
+    public bool LevelUp{ get; set; }
 
 
 
@@ -86,15 +86,16 @@ public class Player : Entity
     public void GainExperience(int _exp)
     {
         //if max level just return
-        bool leveledUp = false;
+        LevelUp = false;
         this.Experience += _exp * 1;
-        
+        Debug.Log("pLAYER HAVE" + Character.Experience + "Character needs" + LevelManager.RequiredExperience(Character.Level));
         
         personalUi.UpdateExp();
         // && Character experience is equal to require experience
-        while (Character.Level < 70 && this.Experience >= LevelManager.RequiredExperience(Character.Level))
+        while (Character.Level < 10 && this.Experience >= LevelManager.RequiredExperience(Character.Level))
         {
-            leveledUp = true;
+
+            LevelUp = true;
             this.Experience -= LevelManager.RequiredExperience(Level);
             Debug.Log(Experience);
             Level++;
@@ -102,9 +103,10 @@ public class Player : Entity
             Character.ExtraStats += 10;
             Debug.Log(Character.Level);
         }
-        if (leveledUp)
+        if (LevelUp == true)
         {
             SetLevel(Level);
+            LevelUp = false;
             Debug.Log(Level);
         }
        
@@ -116,6 +118,8 @@ public class Player : Entity
         Debug.Log(LevelManager.RequiredExperience(Level));
         EventManager.TriggerEvent("lvl");
         EventManager.TriggerEvent("UpStat");
+        //CurrentLife = MaximumLife;
+        
         //ReCalculate(true);
     }
 

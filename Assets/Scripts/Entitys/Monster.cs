@@ -69,7 +69,7 @@ public void NameColour()
             int levelDifference =  player.Level - this.Level;
             
             //if player 3 levels higher
-            if (levelDifference >= 6)
+            if (levelDifference > 2)
             {
 
                 
@@ -94,7 +94,7 @@ public void NameColour()
                 enemyui.name.color = Color.black;
 
             }
-            else if(levelDifference < 4 && levelDifference <= 2)
+            else if(levelDifference < 3 && levelDifference > 0)
             {
                 
                 //whiteName

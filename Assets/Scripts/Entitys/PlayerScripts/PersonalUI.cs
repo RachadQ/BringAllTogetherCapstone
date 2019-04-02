@@ -45,7 +45,7 @@ public class PersonalUI
         currentExp = owner.Experience;
         currentHealth = owner.CurrentLife;
         CurrentMana = owner.Character.Mana;
-        Debug.Log(mana);
+
         CurrentXp = owner.Xp;
         Currentstamina = owner.Character.Stamina;
 
