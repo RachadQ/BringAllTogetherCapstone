@@ -43,7 +43,10 @@ public class PC
     [SerializeField]
     private int pk;
     public virtual int Pk { get { return pk; } set { pk = value; } }
-   
+
+    [SerializeField]
+    private int stamina;
+    public virtual int Stamina { get { return stamina; } set { stamina = value; } }
 
 
     public bool Online { get; set; }

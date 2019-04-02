@@ -46,7 +46,7 @@ public class Monster : Entity,IRespawn
     // Update is called once per frame
     void Update()
     {
-        Respawn(SpawnRate);
+        Respawn2(SpawnRate);
         
 
 
@@ -56,7 +56,38 @@ public class Monster : Entity,IRespawn
     {
 
     }
-    public void NameColour()
+
+    public void Respawn2(float Spawn)
+    {
+
+        if (!Alive)
+        {
+            float resTimer = 0;
+            resTimer += Time.deltaTime * 1;
+
+            Debug.Log(resTimer);
+            if (resTimer > Spawn)
+            {
+                //spawn is bug
+                resTimer = 0;
+                CurrentLife = MaximumLife;
+                this.gameObject.GetComponent<MeshCollider>().enabled = true;
+                this.gameObject.GetComponent<Renderer>().enabled = true;
+
+                foreach (GameObject item in Child)
+                {
+                    item.SetActive(true);
+                }
+                enemyui.UpdateUi();
+
+            }
+
+
+        }
+
+    }
+ 
+public void NameColour()
     {
         Player[] AllPlayers = GameObject.FindObjectsOfType<Player>();
         foreach (Player player in AllPlayers)
@@ -100,7 +131,38 @@ public class Monster : Entity,IRespawn
             
         }
     }
-    public override void Interact()
+
+    public void Respawn(float Spawn)
+    {
+
+        if (!Alive)
+        {
+            float resTimer = 0;
+            resTimer += Time.deltaTime * 1;
+
+            Debug.Log(resTimer);
+            if (resTimer > Spawn)
+            {
+                //spawn is bug
+                resTimer = 0;
+                CurrentLife = MaximumLife;
+                this.gameObject.GetComponent<MeshCollider>().enabled = true;
+                this.gameObject.GetComponent<Renderer>().enabled = true;
+
+                foreach (GameObject item in Child)
+                {
+                    item.SetActive(true);
+                }
+                enemyui.UpdateUi();
+
+            }
+
+
+        }
+
+    }
+
+public override void Interact()
     {
         base.Interact();
         target = FindObjectOfType<Player>();
@@ -120,36 +182,6 @@ public class Monster : Entity,IRespawn
         RecieveDamage(amount); 
         enemyui.UpdateUi();
       
-        
-    }
-
-    public void Respawn(float Spawn)
-    {
-        
-        if (!Alive)
-        {
-            float resTimer = 0;
-            resTimer = Time.time;
-         
-            Debug.Log(resTimer);
-            if ( resTimer>= Spawn)
-            {
-                //spawn is bug
-                resTimer = 0;
-                CurrentLife = MaximumLife;
-                this.gameObject.GetComponent<MeshCollider>().enabled = true;
-                this.gameObject.GetComponent<Renderer>().enabled = true;
-                
-                foreach (GameObject item in Child)
-                    {
-                        item.SetActive(true);
-                    }
-                enemyui.UpdateUi();
-               
-            }
-            
-
-        }
         
     }
 }

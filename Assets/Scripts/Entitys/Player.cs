@@ -47,6 +47,7 @@ public class Player : Entity
         CurrentLife = MaximumLife;
         personalUi.UpdateExp();
         personalUi.UpdateMana();
+        personalUi.UpdateStamina();
       //  UpdateAllBars();
     }
 

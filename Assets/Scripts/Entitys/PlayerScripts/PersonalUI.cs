@@ -44,10 +44,10 @@ public class PersonalUI
 
         currentExp = owner.Experience;
         currentHealth = owner.CurrentLife;
-        CurrentMana = owner.Mana;
+        CurrentMana = owner.Character.Mana;
         Debug.Log(mana);
         CurrentXp = owner.Xp;
-        Currentstamina = owner.Stamina;
+        Currentstamina = owner.Character.Stamina;
 
 
 }
@@ -68,7 +68,7 @@ public class PersonalUI
     public void UpdateMana()
     {
         Debug.Log(CurrentMana + " " + owner.Mana);
-        CurrentMana = owner.Mana;
+        CurrentMana = owner.Character.Mana  ;
 
         ManaBar.value = CalculateMana();
 
@@ -82,7 +82,7 @@ public class PersonalUI
 
     public void UpdateStamina()
     {
-       Currentstamina = owner.Stamina;
+       Currentstamina = owner.Character.Stamina;
         StaminaBar.value = CalculateStamina();
 
     }

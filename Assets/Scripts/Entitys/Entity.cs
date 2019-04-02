@@ -20,7 +20,7 @@ public class Entity : InteractObject,IGetChild
  
  
     public virtual int Mana { get; set; }
-    public virtual int Stamina { get; set; }
+  
 
     public virtual int MaximumLife { get;  }
     public virtual int CurrentLife { get; set; }
