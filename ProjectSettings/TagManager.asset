@@ -7,6 +7,18 @@ TagManager:
   - Enemy
   - init
   - EnemyHealthBar
+  - item
+  - systemDialogue
+  - DP
+  - PlayerImage
+  - chatbox
+  - Content
+  - StaminaBar
+  - XpBar
+  - ManaBar
+  - EquipmentSlot
+  - HealthBar
+  - ExpBar
   layers:
   - Default
   - TransparentFX

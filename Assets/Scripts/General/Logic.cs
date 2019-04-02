@@ -4,7 +4,8 @@ using UnityEngine;
 
 public static class Logic 
 {
- 
+
+    
     // roll chance for items drop
     public static bool RollDice(float _chance, int maxLoot = 100)
     {
@@ -29,5 +30,14 @@ public static class Logic
         return false;
     }
 
-
+    public static Vector3 GivenArea(Vector3 center,Vector3 size)
+    {
+        
+       
+        
+        //Vector3 pos = center + new Vector3(Random.Range(-size.x / 2), size.x / 2), 1.0f, Random.Range(-size.x / 2), size.x / 2),);
+        Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x / 2), 0.7f, Random.Range(-size.z / 2, size.z));
+        return pos;
+        
+    }
 }

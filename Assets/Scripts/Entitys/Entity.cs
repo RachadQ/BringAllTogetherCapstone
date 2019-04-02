@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 using Random = System.Random;
 
-public class Entity : InteractObject
+public class Entity : InteractObject,IGetChild
 {
     public virtual uint UID { get; set; }
     public CombatStats combatStats;
@@ -15,7 +15,7 @@ public class Entity : InteractObject
     public virtual byte Xp { get; set; }
     public virtual string EntityName { get; set; }
     public virtual int Level { get; set; }
-    public LootTable Loot;
+    public LootTable lootTable;
    
  
  
@@ -27,6 +27,9 @@ public class Entity : InteractObject
     public bool Alive { get { return CurrentLife > 0; } }
 
     public virtual int MaximumMana { get { return combatStats.MaxMana; } }
+    public virtual int MaximumStanima { get { return 100; } }
+    public virtual int MaximumXp { get { return 100; } }
+    public List<GameObject> Child { get; set; }
 
     internal bool sentDeath = false;
 
@@ -63,6 +66,7 @@ public class Entity : InteractObject
         return (int)exp;
     }
 
+
     public int CalculatePhysicalDamage(Entity _target, bool _canDodge = false)
     {
         System.Random rnd = new Random();
@@ -84,6 +88,7 @@ public class Entity : InteractObject
         return (int)dmg;
     }
 
+    
 
     public int GetLevelBonus(int l1, int l2)
     {
@@ -110,15 +115,21 @@ public class Entity : InteractObject
             }
             else
             {
-                Debug.Log("Reachinging");
+                
                 //sett player health to 0
                 CurrentLife = 0;
                 //check if it is a monster
                 if (this is Monster)
                 {
-                    
-                    Loot.ItemLoot();
-                    this.gameObject.SetActive(false);
+   
+                    lootTable.DropLoot(this.gameObject);
+                    this.gameObject.GetComponent<MeshCollider>().enabled = false;
+                    this.gameObject.GetComponent<Renderer>().enabled = false;
+                    foreach (GameObject item in Child)
+                    {
+
+                        item.SetActive(false);
+                    }
 
                 }
             }
@@ -127,5 +138,18 @@ public class Entity : InteractObject
        
     }
 
+    public void GetChildren()
+    {
+        
+        foreach (Transform child in transform)
+        {
+            //Add child to childObjects;
+            Child.Add(child.gameObject);
+           
 
+        }
+
+    }
+
+    
 }

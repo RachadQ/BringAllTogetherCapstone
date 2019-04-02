@@ -9,6 +9,6 @@ public class Loot
     [SerializeField]
     private float dropChance;
 
-    public BaseItem MyItem { get => items;  }
+    public  BaseItem MyItem { get => items;  }
     public float DropChance { get => dropChance;  }
 }

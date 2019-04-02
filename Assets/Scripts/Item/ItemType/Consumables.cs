@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Currency : MonoBehaviour
+[System.Serializable]
+public class Consumables : BaseItem
 {
+    public ushort HealthPot { get { return HealthAdded; } set { HealthAdded = value; } }
     // Start is called before the first frame update
     void Start()
     {

@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class Monster : Entity
+public class Monster : Entity,IRespawn
 {
     Player target;
 
     public EnemyUi enemyui;
     public MonsterInfo monster;
-    public LootTable MonsterLoot;
+    public float SpawnRate;
     public override int MaximumLife => combatStats.MaxLife + monster.Life;
     public override int CurrentLife { get => base.CurrentLife; set => base.CurrentLife = value; }
 
@@ -16,30 +17,39 @@ public class Monster : Entity
     public override int Level { get { return monster.Level; } }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-       
+        Child = new List<GameObject>();
+        GetChildren();
+        
         CurrentLife = MaximumLife;
         enemyui = new EnemyUi(this);
-            
+      
     }
 
    
 
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
+      
         base.FixedUpdate();
         NameColour();
      
 
+
+    }
+
+    private void LateUpdate()
+    {
+       
     }
     // Update is called once per frame
     void Update()
     {
-      
+        Respawn(SpawnRate);
         
-       
-      
+
+
     }
 
    void EnemyDie()
@@ -95,11 +105,13 @@ public class Monster : Entity
         base.Interact();
         target = FindObjectOfType<Player>();
         var dmg = target.CalculatePhysicalDamage(this);
-        RecieveDamage(dmg);
+       // RecieveDamage(dmg);
       
         UpdateHealth(dmg);
-        target.Experience += target.CalculateExpGain(this, dmg);
-        Debug.Log(target.Experience);
+        var exp  = target.CalculateExpGain(this, dmg);
+        target.GainExperience(exp);
+       
+        //Debug.Log(target.Experience);
     }
 
     public void UpdateHealth(int amount)
@@ -107,9 +119,37 @@ public class Monster : Entity
 
         RecieveDamage(amount); 
         enemyui.UpdateUi();
+      
         
     }
 
+    public void Respawn(float Spawn)
+    {
+        
+        if (!Alive)
+        {
+            float resTimer = 0;
+            resTimer = Time.time;
+         
+            Debug.Log(resTimer);
+            if ( resTimer>= Spawn)
+            {
+                //spawn is bug
+                resTimer = 0;
+                CurrentLife = MaximumLife;
+                this.gameObject.GetComponent<MeshCollider>().enabled = true;
+                this.gameObject.GetComponent<Renderer>().enabled = true;
+                
+                foreach (GameObject item in Child)
+                    {
+                        item.SetActive(true);
+                    }
+                enemyui.UpdateUi();
+               
+            }
+            
 
-   
+        }
+        
+    }
 }
