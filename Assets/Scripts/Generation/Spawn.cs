@@ -13,7 +13,7 @@ public class Spawn
     }
 
 
-  
+  [
     private Vector3[] entityPosition;
     public Vector3[] EntityPosition
     {
