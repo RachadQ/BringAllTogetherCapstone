@@ -16230,7 +16230,7 @@ Transform:
   m_GameObject: {fileID: 7216310028446768598}
   m_LocalRotation: {x: -0.46550548, y: -0.46550548, z: 0.5322637, w: 0.5322637}
   m_LocalPosition: {x: 0.35, y: 0.29, z: 0.09}
-  m_LocalScale: {x: 0.48176, y: 0.38952005, z: 0.44918}
+  m_LocalScale: {x: 0.48176, y: 0.38952, z: 0.44918}
   m_Children: []
   m_Father: {fileID: 7216310028544208473}
   m_RootOrder: 0
@@ -16340,6 +16340,7 @@ GameObject:
   - component: {fileID: 7216310028675474653}
   - component: {fileID: 7216310028675474650}
   - component: {fileID: 7216310028675474625}
+  - component: {fileID: 2028791880}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -16457,6 +16458,8 @@ MonoBehaviour:
       maxAmount: 0
       dropChance: 0
     droppedcurrency: {fileID: 0}
+  quests:
+    quests: []
   Character:
     uID: 0
     name: Ted
@@ -16469,6 +16472,7 @@ MonoBehaviour:
     life: 100
     mana: 100
     pk: 0
+    stamina: 100
 --- !u!195 &7216310028675474625
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -16491,6 +16495,25 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &2028791880
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216310028675474651}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e1cb832fd40a0c4eb292f153aa2a770, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7216310028874815243
 GameObject:
   m_ObjectHideFlags: 0
