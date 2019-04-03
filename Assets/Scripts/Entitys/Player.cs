@@ -54,7 +54,7 @@ public class Player : Entity
         personalUi.UpdateStamina();
         //  UpdateAllBars();
         quests = new QuestSystem();
-        //quests.AddQuest();
+        quests.AddQuest();
     }
 
     public void UpdateAllBars()
