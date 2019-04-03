@@ -96,6 +96,7 @@ public class Entity : InteractObject
         return bonus;
     }
 
+
     public virtual void RecieveDamage(uint _dmg)
     {
         // if object is alive

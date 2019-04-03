@@ -35,7 +35,7 @@ public class EnemyUi
 
     }
 
-   
+    
 
     public void UpdateUi()
     {
