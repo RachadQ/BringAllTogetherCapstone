@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    public QuestSystem quests;
+    
     public PlayerMovement movement;
     public CameraController cam;
     // character personal stats;
@@ -11,6 +13,8 @@ public class Player : Entity
     public StatusInfo statusUi;
     public Guild guild;
     PersonalUI personalUi;
+    
+   
 
     public override int MaximumLife => combatStats.MaxLife + Character.Life;
     public override int CurrentLife { get => base.CurrentLife; set => base.CurrentLife = value; }
@@ -48,7 +52,9 @@ public class Player : Entity
         personalUi.UpdateExp();
         personalUi.UpdateMana();
         personalUi.UpdateStamina();
-      //  UpdateAllBars();
+        //  UpdateAllBars();
+        quests = new QuestSystem();
+        quests.AddQuest();
     }
 
     public void UpdateAllBars()

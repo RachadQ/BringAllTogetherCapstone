@@ -23,7 +23,7 @@ public class NetworkManager : MonoBehaviour
     }
 
    
-    public void createSpawnPoints()
+    /*public void createSpawnPoints()
     {
         foreach (SpawnManager Spawns in SpawnPoints)
         {
@@ -48,5 +48,5 @@ public class NetworkManager : MonoBehaviour
         {
             spawns.Draw();
         }
-    }
+    }*/
 }

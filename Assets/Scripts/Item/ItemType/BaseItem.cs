@@ -81,6 +81,11 @@ public class BaseItem : InteractObject
     private ushort manaAdd;
     public virtual ushort ManaAdded { get { return manaAdd; } set { manaAdd = value; } }
 
+    //
+    public BaseItem()
+    {
+
+    }
     //equipable base Item'
    // public BaseItem()
 

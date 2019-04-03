@@ -241,7 +241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329879895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.81, z: -15.33}
+  m_LocalPosition: {x: 4, y: 2.03, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -260,13 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPoints:
-  - spawnObject:
-    - spawnMonster: {fileID: 3175297694961171163, guid: 953d282de7c022b4baa57bccba95d5bc,
-        type: 3}
-      spawnAmount: 10
-    SpawnPoint: {fileID: 2084531107}
-    center: {x: 5, y: 5, z: 5}
-    size: {x: 10, y: 5, z: 10}
+  - {fileID: 0}
 --- !u!1 &538776720
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +510,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1704051429 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7684685630108123031, guid: 59c8480fc2eecf84aaca519e7a5c9c1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7684685630588323566}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63edfbdaf2b3b7d469bd629728529018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2028791879 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7216310028675474651, guid: d4d6b3277b0e9b04f8eddb2677c130df,
@@ -550,6 +556,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2084531108}
+  - component: {fileID: 2084531109}
   m_Layer: 0
   m_Name: LevelOne-Ten
   m_TagString: Untagged
@@ -571,6 +578,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2084531109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084531107}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302b2be75f85e3a47a7ba4ba4db83f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnObject:
+  - spawnMonster: {fileID: 3175297694961171163, guid: 953d282de7c022b4baa57bccba95d5bc,
+      type: 3}
+    spawnAmount: 10
+  center: {x: 0, y: 0, z: 0}
+  size: {x: 0, y: 0, z: 0}
 --- !u!1001 &3175297695393167074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -719,8 +744,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
         type: 3}
+      propertyPath: quests.quest.loot.loot.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
+        type: 3}
       propertyPath: Character.stamina
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
+        type: 3}
+      propertyPath: q1.questName
+      value: Monster Hunter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
+        type: 3}
+      propertyPath: q1.description
+      value: kill ox noob
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
+        type: 3}
+      propertyPath: q1.experienceReward
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
+        type: 3}
+      propertyPath: quests.quest.questName
+      value: Monster hunt
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
+        type: 3}
+      propertyPath: quests.quest.description
+      value: kill ox noob
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
+        type: 3}
+      propertyPath: quests.quest.experienceReward
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
+        type: 3}
+      propertyPath: quests.quest.loot.loot.Array.data[0].items
+      value: 
+      objectReference: {fileID: 1704051429}
+    - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
+        type: 3}
+      propertyPath: quests.quest.loot.loot.Array.data[0].dropChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
+        type: 3}
+      propertyPath: quests.quest.loot.Currency.minAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
+        type: 3}
+      propertyPath: quests.quest.loot.Currency.maxAmount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216310028675474650, guid: d4d6b3277b0e9b04f8eddb2677c130df,
+        type: 3}
+      propertyPath: quests.quest.loot.Currency.dropChance
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1328374610202757737, guid: d4d6b3277b0e9b04f8eddb2677c130df,
         type: 3}

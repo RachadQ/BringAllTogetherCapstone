@@ -33,6 +33,14 @@ public class LootTable
 
     }
 
+    public void AddLoot()
+    {
+        ItemLoot();
+        CurrencyLoot();
+
+        //add them to inventory
+    }
+
     public void SpawnObjects(Transform SpawnPoint, List<BaseItem> droppedItems, CurrBase droppedCurrency)
     {
       

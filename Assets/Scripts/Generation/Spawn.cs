@@ -12,22 +12,13 @@ public class Spawn
         set { spawnMonster = value; }
     }
 
-
-  [
-    private Vector3[] entityPosition;
-    public Vector3[] EntityPosition
+    private Transform[] entityPosition;
+    public Transform[] EntityPosition
     {
         get { return entityPosition; }
         set { entityPosition = value; }
     }
 
-
-    private int currentAmount;
-    public int CurrentAmount
-    {
-        get { return currentAmount; }
-        set { currentAmount = spawnAmount; }
-    }
     [SerializeField]
     private int spawnAmount;
     public int SpawnAmount
@@ -36,8 +27,11 @@ public class Spawn
         //set { spawnAmount = value; }
     }
 
-    public void setAmountPositions(int amount)
+
+    public void SetAmount(int amount)
     {
-        entityPosition = new Vector3[amount];
+        EntityPosition = new Transform[amount];
     }
+
+
 }
