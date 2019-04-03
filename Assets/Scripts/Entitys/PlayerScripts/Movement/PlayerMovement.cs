@@ -46,13 +46,12 @@ public class PlayerMovement
                 {
             
                 GameObject _interactObject = hit.collider.gameObject;
-
+                
                     bool interactable = _interactObject.tag == "item" || _interactObject.tag == "Npc" || _interactObject.tag == "artifact" || _interactObject.tag == "portal" || _interactObject.tag == "Enemy";
 
                     if (interactable)
                     {
-                         
-
+                   
                         //what object that player interact with what type is derived from
                         _interactObject.GetComponent<InteractObject>().MoveToInteractable(navMeshAgent);
                      

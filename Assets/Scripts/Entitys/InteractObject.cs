@@ -25,7 +25,7 @@ public class InteractObject : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    protected void FixedUpdate()
     {
         //check if we have a player agent and path not pending
         if (!hasInteracted && Navplayer != null && !Navplayer.pathPending)

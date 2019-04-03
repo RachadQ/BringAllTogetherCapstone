@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 using Random = System.Random;
 
-public class Entity : InteractObject
+public class Entity : InteractObject,IGetChild
 {
     public virtual uint UID { get; set; }
     public CombatStats combatStats;
@@ -15,22 +15,25 @@ public class Entity : InteractObject
     public virtual byte Xp { get; set; }
     public virtual string EntityName { get; set; }
     public virtual int Level { get; set; }
-
+    public LootTable lootTable;
    
  
  
     public virtual int Mana { get; set; }
-    public virtual int Stamina { get; set; }
+  
 
     public virtual int MaximumLife { get;  }
     public virtual int CurrentLife { get; set; }
     public bool Alive { get { return CurrentLife > 0; } }
 
     public virtual int MaximumMana { get { return combatStats.MaxMana; } }
+    public virtual int MaximumStanima { get { return 100; } }
+    public virtual int MaximumXp { get { return 100; } }
+    public List<GameObject> Child { get; set; }
 
     internal bool sentDeath = false;
 
-    public virtual ulong CalculateExpGain(Entity _target, uint _dmg)
+    public virtual int CalculateExpGain(Entity _target, int _dmg)
     {
 
         // if it is player dont get exp 
@@ -60,10 +63,11 @@ public class Entity : InteractObject
         else if (levelDifference < -5) // close to level (white name)
             exp *= 1.3;
 
-        return (ulong)exp;
+        return (int)exp;
     }
 
-    public uint CalculatePhysicalDamage(Entity _target, bool _canDodge = false)
+
+    public int CalculatePhysicalDamage(Entity _target, bool _canDodge = false)
     {
         System.Random rnd = new Random();
         var dmg = rnd.Next(combatStats.MinimumDamage, combatStats.MaximumDamage);
@@ -81,9 +85,10 @@ public class Entity : InteractObject
         Debug.Log("player Damage: " + dmg + " attckers level: " + Level + " object attcked level: " + _target.Level);
         //   ulong exp = CalculateExperienceGain(_target, (uint)dmg);
 
-        return (uint)dmg;
+        return (int)dmg;
     }
 
+    
 
     public int GetLevelBonus(int l1, int l2)
     {
@@ -96,23 +101,60 @@ public class Entity : InteractObject
         return bonus;
     }
 
+<<<<<<< HEAD
 
     public virtual void RecieveDamage(uint _dmg)
+=======
+    public virtual void RecieveDamage(int _dmg)
+>>>>>>> 8fa4f9b65f9394ce1bf557b3386017816001b548
     {
         // if object is alive
         if (Alive)
         {
+            int damage = Math.Min(CurrentLife, _dmg);
             // check if life is greater then damage delt
-            if (CurrentLife > _dmg)
+            if (damage == _dmg)
             {
                 // do damage
-                CurrentLife -= (ushort)_dmg;
+                CurrentLife -= _dmg;
             }
             else
             {
+                
                 //sett player health to 0
                 CurrentLife = 0;
+                //check if it is a monster
+                if (this is Monster)
+                {
+   
+                    lootTable.DropLoot(this.gameObject);
+                    this.gameObject.GetComponent<MeshCollider>().enabled = false;
+                    this.gameObject.GetComponent<Renderer>().enabled = false;
+                    foreach (GameObject item in Child)
+                    {
+
+                        item.SetActive(false);
+                    }
+
+                }
             }
         }
+       
+       
     }
+
+    public void GetChildren()
+    {
+        
+        foreach (Transform child in transform)
+        {
+            //Add child to childObjects;
+            Child.Add(child.gameObject);
+           
+
+        }
+
+    }
+
+    
 }

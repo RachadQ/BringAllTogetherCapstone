@@ -40,7 +40,7 @@ public class EnemyUi
     public void UpdateUi()
     {
         currentHealth = owner.CurrentLife;
-        Debug.Log(currentHealth);
+        //set enemy Health bar to calculated health aka percentage
         HealthBar.value = CalculateHealth();
     }
 
@@ -48,7 +48,7 @@ public class EnemyUi
 
    public float CalculateHealth()
     {
-        Debug.Log(" " + currentHealth  +" " + health);
+
         return (float)currentHealth / health;
      
     }
