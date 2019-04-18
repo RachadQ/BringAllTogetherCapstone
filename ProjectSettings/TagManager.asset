@@ -19,6 +19,10 @@ TagManager:
   - EquipmentSlot
   - HealthBar
   - ExpBar
+  - Npc
+  - GoldText
+  - DiamondText
+  - Slot
   layers:
   - Default
   - TransparentFX

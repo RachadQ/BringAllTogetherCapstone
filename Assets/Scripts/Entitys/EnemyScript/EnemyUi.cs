@@ -28,6 +28,7 @@ public class EnemyUi
         currentHealth = owner.CurrentLife;
         HealthBar = _owner.gameObject.transform.Find("NPC_Enemy/HealthBarSlider").GetComponent<Slider>();
         name = _owner.gameObject.transform.Find("NPC_Enemy/NameText").GetComponent<Text>();
+        name.text = owner.EntityName;
         name.color = Color.red;
         HealthBar.value = CalculateHealth();
         

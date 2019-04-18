@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NetworkManager : MonoBehaviour
 {
-    public SpawnManager[] SpawnPoints;
+   // public SpawnManager[] SpawnPoints;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -12,7 +12,7 @@ public class NetworkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        FloatingTextController.Init();
     
     }
 

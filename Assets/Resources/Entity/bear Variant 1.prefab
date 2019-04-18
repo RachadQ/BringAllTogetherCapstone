@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3063447745085554828
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3175297694961171163, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_Name
+      value: bear Variant 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.826814
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0842716
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.976682
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.76299435
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6464052
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.41521487
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.81848425
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171164, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4155489
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171161, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: lootTable.loot.Array.data[0].items
+      value: 
+      objectReference: {fileID: 7684685630108123031, guid: 3bdba691c1a1e1a419dc6a818a1ef715,
+        type: 3}
+    - target: {fileID: 3175297694961171161, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: lootTable.loot.Array.data[0].dropChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171161, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: monster.name
+      value: Bear
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171161, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: monster.life
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175297694961171161, guid: 953d282de7c022b4baa57bccba95d5bc,
+        type: 3}
+      propertyPath: monster.level
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 953d282de7c022b4baa57bccba95d5bc, type: 3}

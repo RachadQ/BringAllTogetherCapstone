@@ -16,15 +16,12 @@ public class LootTable
 
     public void DropLoot(GameObject entity)
     {
-        if (entity.GetComponent<Player>())
-        {
-            return;
-        }
+      
        // Debug.Log(Currency.DropChance);
         //Debug.Log(Logic.RollDice(Currency.DropChance));
         //populate loot
         ItemLoot();
-        CurrencyLoot();
+        CurrencyLoot(droppedcurrency);
         
         //spawn loot
         SpawnObjects(entity.transform, droppedItems, droppedcurrency);
@@ -33,13 +30,7 @@ public class LootTable
 
     }
 
-    public void AddLoot()
-    {
-        ItemLoot();
-        CurrencyLoot();
-
-        //add them to inventory
-    }
+  
 
     public void SpawnObjects(Transform SpawnPoint, List<BaseItem> droppedItems, CurrBase droppedCurrency)
     {
@@ -63,7 +54,7 @@ public class LootTable
        
     }
 
-    public void CurrencyLoot()
+    public void CurrencyLoot(CurrBase cLoot)
     {
         if (droppedcurrency == null)
         {
@@ -75,6 +66,7 @@ public class LootTable
             // get random between max and min
             System.Random rnd = new Random();
             droppedcurrency.Amount = rnd.Next(Currency.MinAmount, Currency.MaxAmount);
+            cLoot.Amount = droppedcurrency.Amount;
           //  Debug.Log("droppeAmount"+ droppedcurrency.Amount);
             
         }

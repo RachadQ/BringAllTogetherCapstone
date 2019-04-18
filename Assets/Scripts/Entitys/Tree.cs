@@ -9,7 +9,7 @@ public class Tree : Resource,IRespawn
     // Start is called before the first frame update
     void Start()
     {
-        currentAmount = MaxAmount;
+        currentAmount = resource;
     }
 
     // Update is called once per frame
@@ -20,7 +20,9 @@ public class Tree : Resource,IRespawn
 
     public override void Interact()
     {
+
         currentAmount--;
+        Debug.Log(currentAmount);
         base.Interact();
     }
 

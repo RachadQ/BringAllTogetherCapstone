@@ -10,15 +10,15 @@ public class Resource : InteractObject,IGetChild
     public bool Alive { get { return currentAmount > 0; } }
     public List<GameObject> Child { get; set; }
     public LootTable lootTable;
+    Player player;
 
 
-
-    public virtual void RecieveResource(int amount)
+    public void  RecieveResource(int amount)
     {
         // if object is alive
         if (Alive)
         {
-            int damage = resource;
+            int damage = 1;
             // check if life is greater then damage delt
             if (damage == amount)
             {
@@ -56,8 +56,9 @@ public class Resource : InteractObject,IGetChild
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
+
 
     public void GetChildren()
     {

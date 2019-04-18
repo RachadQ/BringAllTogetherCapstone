@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using TMPro;
 public class Monster : Entity,IRespawn
 {
     Player target;
-
+   
     public EnemyUi enemyui;
     public MonsterInfo monster;
     public float SpawnRate;
@@ -21,15 +21,17 @@ public class Monster : Entity,IRespawn
     // Start is called before the first frame update
     private void Start()
     {
+    
         Child = new List<GameObject>();
         GetChildren();
         
         CurrentLife = MaximumLife;
         enemyui = new EnemyUi(this);
-      
+        enemyui.name.text = monster.Name;
+       
     }
 
-   
+
 
     private new void FixedUpdate()
     {
@@ -41,6 +43,7 @@ public class Monster : Entity,IRespawn
 
     }
 
+    
     private void LateUpdate()
     {
        
@@ -49,8 +52,7 @@ public class Monster : Entity,IRespawn
     new void Update()
     {
         Respawn(SpawnRate);
-        
-
+      
 
     }
 
@@ -58,11 +60,12 @@ public class Monster : Entity,IRespawn
     {
 
     }
-
+    
 
  
 public void NameColour()
     {
+       
         Player[] AllPlayers = GameObject.FindObjectsOfType<Player>();
         foreach (Player player in AllPlayers)
         {
@@ -75,6 +78,7 @@ public void NameColour()
                 
                 //green name
                 enemyui.name.color = Color.green;
+               
 
 
 
@@ -94,11 +98,11 @@ public void NameColour()
                 enemyui.name.color = Color.black;
 
             }
-            else if(levelDifference < 3 && levelDifference > 0)
+            else if(levelDifference < 3 && levelDifference >= 0)
             {
                 
                 //whiteName
-                enemyui.name.color = Color.white;
+                enemyui.name.color = Color.gray;
             }
             
 
@@ -114,7 +118,7 @@ public void NameColour()
             
             time += Time.deltaTime * 1;
 
-
+            
             if (time > Spawn)
             {
                 //spawn is bug
@@ -145,6 +149,7 @@ public override void Interact()
       
         UpdateHealth(dmg);
         var exp  = target.CalculateExpGain(this, dmg);
+        FloatingTextController.CreateFloatingText(dmg.ToString(), this.transform);
         target.GainExperience(exp);
        
         //Debug.Log(target.Experience);

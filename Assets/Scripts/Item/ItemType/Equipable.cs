@@ -24,9 +24,9 @@ public class Equipable : BaseItem
     public override void Interact()
     {
         base.Interact();
-     
-      
-        //player.AddItemInventory(1, this);
+
+
+        player.inventory.AddItem(this);
         Destroy(this.gameObject);
         
     }

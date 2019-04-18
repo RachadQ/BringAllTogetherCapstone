@@ -13,7 +13,8 @@ public class FloatingText : MonoBehaviour
         AnimatorClipInfo[] clipInfos = animator.GetCurrentAnimatorClipInfo(0);
         //destory after the length of the first clip
         //get first clip length
-        Destroy(gameObject, clipInfos[0].clip.length);
+      //  Debug.Log(clipInfos[0].clip.length);
+        Destroy(gameObject, clipInfos[0].clip.length +10);
         //get the component from the object animator is attached to
         text = animator.GetComponent<TextMeshProUGUI>();
     }

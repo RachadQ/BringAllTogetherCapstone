@@ -49,7 +49,7 @@ public class InteractObject : MonoBehaviour
     {
         Debug.Log("interact with base class");
     }
-
+    
 
 
 }

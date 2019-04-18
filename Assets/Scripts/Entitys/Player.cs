@@ -13,7 +13,7 @@ public class Player : Entity
     public StatusInfo statusUi;
     public Guild guild;
     PersonalUI personalUi;
-    
+    public Inventory inventory;
    
 
     public override int MaximumLife => combatStats.MaxLife + Character.Life;
@@ -34,26 +34,38 @@ public class Player : Entity
     public int ExtraStats { get { return Character.ExtraStats; } set { Character.ExtraStats = value; } }
     public bool LevelUp{ get; set; }
 
+    private void Awake()
+    {
+        Level = 1;
+        movement = new PlayerMovement(this.gameObject);
+        cam = new CameraController(this.transform);
+        personalUi = new PersonalUI(this);
+        statusUi = new StatusInfo(this);
+        quests = new QuestSystem();
+       
+        
+        inventory = new Inventory(this);
+        inventory.UpdateGoldUi();
+    
+
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Level = 1;
+     
         Character.ExtraStats = 10;
        // Debug.Log(MaximumMana + "mana");
-        movement = new PlayerMovement(this.gameObject);
-        cam = new CameraController(this.transform);
+        
        
-        personalUi = new PersonalUI(this);
-        statusUi = new StatusInfo(this);
-       
+      
         CurrentLife = MaximumLife;
         personalUi.UpdateExp();
         personalUi.UpdateMana();
         personalUi.UpdateStamina();
         //  UpdateAllBars();
-        quests = new QuestSystem();
+      
         //quests.AddQuest();
     }
 

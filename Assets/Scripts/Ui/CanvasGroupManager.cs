@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class CanvasGroupManager : MonoBehaviour
 {
     public UiGroup[] uiGroup;
-    public UiGroup[] statusChild;  
-  
+    public UiGroup[] statusChild;
+    private float offSet = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +40,7 @@ public class CanvasGroupManager : MonoBehaviour
 
    
 
+
 public void GearPanel()
     {
         if (uiGroup[3].isActive == true)
@@ -55,9 +56,40 @@ public void GearPanel()
         }
     }
 
+    public void DisplayDescriptionPanel()
+    {
+        //if inventory is open
+        if (uiGroup[0].isActive == true)
+        {
+            statusChild[2].canvas.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + offSet);
+            Debug.Log(statusChild[2].canvas.transform.position);
+            statusChild[2].Switch();
+            statusChild[2].canvas.blocksRaycasts = true;
+            
+        }
+        
+            
+      
+        
+      
+    }
+
+
     public void DisplayInventoryPanel()
     {
         uiGroup[0].Switch();
+        //if inventory closes close 
+        if (uiGroup[0].isActive == false)
+        {
+            // and item decription is open close it 
+            if (statusChild[2].isActive == true)
+            {
+                statusChild[2].Switch();
+               
+            }
+           
+         
+        }
     }
 
     public void DisplayGuildPanel()

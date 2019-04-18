@@ -9,7 +9,7 @@ public class BaseItem : InteractObject
 
     [SerializeField]
     private Sprite sprite;
-    public virtual Sprite Sprite { get { return sprite; } set { sprite = value; } }
+    public Sprite Sprite { get { return sprite; } set { sprite = value; } }
 
     [SerializeField]
     private string itemName;
@@ -81,11 +81,16 @@ public class BaseItem : InteractObject
     private ushort manaAdd;
     public virtual ushort ManaAdded { get { return manaAdd; } set { manaAdd = value; } }
 
-    //
-    public BaseItem()
-    {
 
-    }
+    [SerializeField]
+    private ushort maxDuration;
+    public virtual ushort MaxDuration { get { return maxDuration; } set { maxDuration = value; } }
+
+    [SerializeField]
+    private ushort currentDuration;
+    public virtual ushort CurrentDuration { get { return currentDuration; } set { currentDuration = value; } }
+    //
+
     //equipable base Item'
    // public BaseItem()
 

@@ -193,6 +193,8 @@ MonoBehaviour:
       dropChance: 70
     droppedcurrency: {fileID: 2448730640196455925, guid: 1c56f2c65efde694a8fb7db9a76d1e5d,
       type: 3}
+  FloatingTextPrefab: {fileID: 8969283110547693361, guid: 72ba8d5d2bec6d8409ece6ea7fcec76d,
+    type: 3}
   enemyui:
     HealthBar: {fileID: 0}
     name: {fileID: 0}
