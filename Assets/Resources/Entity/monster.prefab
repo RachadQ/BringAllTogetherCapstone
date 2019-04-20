@@ -1,5 +1,84 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1412584195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1412584196}
+  - component: {fileID: 1412584198}
+  - component: {fileID: 1412584197}
+  m_Layer: 9
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1412584196
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412584195}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3175297695592846243}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1412584198
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412584195}
+  m_CullTransparentMesh: 0
+--- !u!114 &1412584197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412584195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
 --- !u!1 &3175297694610581658
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +166,7 @@ GameObject:
   - component: {fileID: 3175297694961171166}
   - component: {fileID: 3175297694961171161}
   - component: {fileID: 3175297694961171160}
+  - component: {fileID: 953937102}
   m_Layer: 0
   m_Name: monster
   m_TagString: Enemy
@@ -135,7 +215,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d7db172a1ea882b40803b43c11797bd0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -171,19 +251,19 @@ MonoBehaviour:
   combatStats:
     MaxLife: 300
     MaxMana: 0
-    MinimumDamage: 0
-    MaximumDamage: 0
+    MinimumDamage: 1
+    MaximumDamage: 10
     Defense: 50
     MagicDamage: 0
     MagicResistance: 0
     MagicDefense: 0
-    AttackSpeed: 0
+    AttackSpeed: 2
     AttackRange: 0
     Accuracy: 0
     Dodge: 0
   lootTable:
     loot:
-    - items: {fileID: 7684685630108123031, guid: 59c8480fc2eecf84aaca519e7a5c9c1c,
+    - items: {fileID: 7684685630108123031, guid: 3bdba691c1a1e1a419dc6a818a1ef715,
         type: 3}
       dropChance: 50
     droppedItems: []
@@ -193,14 +273,14 @@ MonoBehaviour:
       dropChance: 70
     droppedcurrency: {fileID: 2448730640196455925, guid: 1c56f2c65efde694a8fb7db9a76d1e5d,
       type: 3}
-  FloatingTextPrefab: {fileID: 8969283110547693361, guid: 72ba8d5d2bec6d8409ece6ea7fcec76d,
-    type: 3}
   enemyui:
     HealthBar: {fileID: 0}
     name: {fileID: 0}
+    popUpText: {fileID: 0}
+    canvas: {fileID: 0}
   monster:
     id: 0
-    name: 
+    name: bobby
     life: 100
     attackMax: 0
     attackMin: 0
@@ -212,6 +292,7 @@ MonoBehaviour:
     level: 4
     dodge: 0
   SpawnRate: 5
+  attackRate: 0
 --- !u!64 &3175297694961171160
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -220,12 +301,34 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3175297694961171163}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!195 &953937102
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175297694961171163}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1.3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &3175297695592846242
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,13 +358,14 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1412584196}
   m_Father: {fileID: 3175297694961171164}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.072}
+  m_AnchoredPosition: {x: 0, y: 51.2}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3175297695592846246

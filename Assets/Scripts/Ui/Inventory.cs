@@ -44,6 +44,26 @@ public class Inventory
         return false; 
     }
 
+    public void RemoveItem(BaseItem item)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] == item)
+            {
+                items[i] = null;
+                inventorySlots[i].item = null;
+                inventorySlots[i].icon.sprite = null;
+                inventorySlots[i].icon.enabled = false;
+                return;
+
+                //inventorySlots[i].item = item;
+             //   UpdateSlotUi();
+            }
+        }
+
+    }
+
+   
     public void UpdateSlotUi()
     {
         // go through inventory slots

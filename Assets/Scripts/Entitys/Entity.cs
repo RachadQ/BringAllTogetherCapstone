@@ -103,6 +103,7 @@ public class Entity : InteractObject,IGetChild
 
     public virtual void RecieveDamage(int _dmg)
     {
+        Debug.Log("Reaching");
         // if object is alive
         if (Alive)
         {
@@ -131,6 +132,11 @@ public class Entity : InteractObject,IGetChild
                         item.SetActive(false);
                     }
 
+                }
+
+                else if (this is Player)
+                {
+                    this.transform.position = new Vector3(6.38f, 1.5f, -33.19f);
                 }
             }
         }

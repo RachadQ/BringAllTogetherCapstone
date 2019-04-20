@@ -15,6 +15,7 @@ public class FloatingTextController : MonoBehaviour
               canvases.Add(cans);
           }
        */
+
         //find by tag
         canvas = GameObject.Find("InitCanvas");
         if (!popUpText)
@@ -22,6 +23,7 @@ public class FloatingTextController : MonoBehaviour
       
 
     }
+    
     public static void CreateFloatingText(string text, Transform location)
     {
        
@@ -33,7 +35,7 @@ public class FloatingTextController : MonoBehaviour
         Debug.Log(screenPosition.ToString());
         //set parent
         instance.transform.SetParent(canvas.transform,false);
-        instance.transform.position = screenPosition;
+      //  instance.transform.position = screenPosition;
         instance.SetText(text);
     }
     // Start is called before the first frame update

@@ -11,15 +11,13 @@ public class EnemyUi
     int health;
     int currentHealth;
     public Text name;
-    
-    public enum levelBonus
-        {
-         green,
-         red,
-         black,
-         white
-        }
+   
+    [SerializeField]
+    FloatingText popUpText;
+    [SerializeField]
+    GameObject canvas;
 
+ 
     public EnemyUi(Monster _owner)
     {
 
@@ -31,10 +29,16 @@ public class EnemyUi
         name.text = owner.EntityName;
         name.color = Color.red;
         HealthBar.value = CalculateHealth();
-        
-//HealthBar.value = CalculateHealth();
+
+        canvas = owner.gameObject.transform.Find("NPC_Enemy").gameObject;
+      
+        if (!popUpText)
+            popUpText = Resources.Load<FloatingText>("PopUpUi/PopUpTextParent");
+
+        //HealthBar.value = CalculateHealth();
 
     }
+
 
    
 
@@ -45,9 +49,23 @@ public class EnemyUi
         HealthBar.value = CalculateHealth();
     }
 
+    public void CreateFloatingText(string text, Transform location)
+    {
 
+        //instatiate popuptext
+        FloatingText instance = MonoBehaviour.Instantiate(popUpText);
+        ;
+        Vector2 screenPosition = Camera.main.WorldToScreenPoint(location.position);
+        screenPosition.y += 25;
+        Vector3 canvasPos = canvas.transform.position;
+        canvasPos.y += 1;
+        //set parent
+        instance.transform.SetParent(canvas.transform, false);
+        instance.transform.position = canvasPos;
+        instance.SetText(text);
+    }
 
-   public float CalculateHealth()
+    public float CalculateHealth()
     {
 
         return (float)currentHealth / health;

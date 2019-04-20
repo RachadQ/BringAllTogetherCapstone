@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Entity
+public class Player : Entity, IRespawn
 {
     public QuestSystem quests;
     
@@ -12,10 +12,10 @@ public class Player : Entity
     public PC Character;
     public StatusInfo statusUi;
     public Guild guild;
-    PersonalUI personalUi;
+    public PersonalUI personalUi;
     public Inventory inventory;
-   
 
+    public float time { get; set; }
     public override int MaximumLife => combatStats.MaxLife + Character.Life;
     public override int CurrentLife { get => base.CurrentLife; set => base.CurrentLife = value; }
     public override string EntityName { get { return Character.Name; } set { Character.Name = value; } }
@@ -33,6 +33,7 @@ public class Player : Entity
     public int Intellect { get { return Character.Intellect; } set { Character.Intellect = value; } }
     public int ExtraStats { get { return Character.ExtraStats; } set { Character.ExtraStats = value; } }
     public bool LevelUp{ get; set; }
+    public float SpawnRate;
 
     private void Awake()
     {
@@ -91,6 +92,8 @@ public class Player : Entity
             personalUi.UpdateHealth();
         }
 
+        Respawn(SpawnRate);
+
         
     }
     private new void FixedUpdate()
@@ -130,6 +133,34 @@ public class Player : Entity
        
     }
 
+
+    public void Respawn(float Spawn)
+    {
+
+        if (!Alive)
+        {
+
+            time += Time.deltaTime * 1;
+
+
+            if (time > Spawn)
+            {
+                //spawn is bug
+                time = 0;
+                CurrentLife = MaximumLife;
+                this.gameObject.GetComponent<CapsuleCollider>().enabled = true;
+                this.gameObject.GetComponent<Renderer>().enabled = true;
+
+               
+                personalUi.UpdateHealth();
+
+            }
+
+
+        }
+
+    }
+
     public void SetLevel(int _level)
     {
         Level = _level;
@@ -156,6 +187,15 @@ public class Player : Entity
     public void UpdateLevel()
     {
         statusUi.UpdateLevel();
+    }
+
+    public void UpdateHealth(int amount)
+    {
+
+        RecieveDamage(amount);
+        personalUi.UpdateHealth();
+
+
     }
     #region attribute
     private void UpdateStats()
