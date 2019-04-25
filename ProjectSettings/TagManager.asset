@@ -23,6 +23,7 @@ TagManager:
   - GoldText
   - DiamondText
   - Slot
+  - Portal
   layers:
   - Default
   - TransparentFX

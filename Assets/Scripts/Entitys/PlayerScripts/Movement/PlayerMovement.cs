@@ -40,14 +40,14 @@ public class PlayerMovement
 
 
             //ignore other layers
-            int layermask = 1 << navMeshAgent.gameObject.layer;
+          //  int layermask = 1 << navMeshAgent.gameObject.layer;
             
-                if (Physics.Raycast(ray, out hit, 100, layermask))
+                if (Physics.Raycast(ray, out hit, 100))
                 {
             
                 GameObject _interactObject = hit.collider.gameObject;
                 
-                    bool interactable = _interactObject.tag == "item" || _interactObject.tag == "Npc" || _interactObject.tag == "artifact" || _interactObject.tag == "portal" || _interactObject.tag == "Enemy";
+                    bool interactable = _interactObject.tag == "item" || _interactObject.tag == "Npc" || _interactObject.tag == "artifact" || _interactObject.tag == "Portal" || _interactObject.tag == "Enemy";
 
                     if (interactable)
                     {

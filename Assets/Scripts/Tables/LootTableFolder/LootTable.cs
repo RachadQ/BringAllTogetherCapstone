@@ -56,10 +56,7 @@ public class LootTable
 
     public void CurrencyLoot(CurrBase cLoot)
     {
-        if (droppedcurrency == null)
-        {
-
-        }
+      
         if (Logic.RollDice(Currency.DropChance) == true)
         {
             

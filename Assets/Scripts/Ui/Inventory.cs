@@ -14,7 +14,7 @@ public class Inventory
 
     public Inventory(Player _owner)
     {
-        owner = _owner;
+        owner = _owner; 
       inventorySlots = GameObject.FindObjectsOfType<InventorySlot>();
         itemDescription = new SlotDescription();
         inventoryCash = new InventoryCash(owner);

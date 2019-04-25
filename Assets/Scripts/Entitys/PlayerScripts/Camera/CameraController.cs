@@ -19,10 +19,10 @@ public class CameraController
         //Vector3 thirdPersonView = this.transform.position + playerCamera.Offset;
         // Vector3 TPVS = Vector3.Lerp(this.transform.position, thirdPersonView, PlayerCamera.smoothing *Time.deltaTime);
         // cam.transform.position = TPVS;
-       
-        
 
-        cam.transform.position =  target.transform.position- target.forward* 20 + target.up * 15;
+
+        Vector3 thirdPersonView = target.transform.position - target.forward * 20 + target.up * 15;
+        cam.transform.position =  thirdPersonView;
         cam.transform.LookAt(target);
         cam.transform.parent = target;
     }

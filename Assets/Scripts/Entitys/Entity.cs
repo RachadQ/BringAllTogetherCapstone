@@ -101,9 +101,9 @@ public class Entity : InteractObject,IGetChild
         return bonus;
     }
 
-    public virtual void RecieveDamage(int _dmg)
+    public void RecieveDamage(int _dmg)
     {
-        Debug.Log("Reaching");
+
         // if object is alive
         if (Alive)
         {
@@ -120,6 +120,7 @@ public class Entity : InteractObject,IGetChild
                 //sett player health to 0
                 CurrentLife = 0;
                 //check if it is a monster
+                //testing purposes
                 if (this is Monster)
                 {
    

@@ -31,4 +31,6 @@ public class Equipable : BaseItem
         
     }
 
+
+
 }

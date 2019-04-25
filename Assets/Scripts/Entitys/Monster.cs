@@ -161,7 +161,7 @@ public override void Interact()
        // FloatingTextController.CreateFloatingText(dmg.ToString(), this.transform);
         target.GainExperience(exp);
        
-        //Debug.Log(target.Experience);
+       
     }
 
     public void UpdateHealth(int amount)
@@ -181,7 +181,7 @@ public override void Interact()
         if (distance <= attackrange)
         {
             attackRate -= Time.deltaTime;
-            Debug.Log(attackRate);
+           
             if (Alive)
             {
                 if (attackRate <= 0)

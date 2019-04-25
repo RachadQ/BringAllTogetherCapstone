@@ -38,8 +38,9 @@ public class Player : Entity, IRespawn
     private void Awake()
     {
         Level = 1;
-        movement = new PlayerMovement(this.gameObject);
         cam = new CameraController(this.transform);
+        movement = new PlayerMovement(this.gameObject);
+       
         personalUi = new PersonalUI(this);
         statusUi = new StatusInfo(this);
         quests = new QuestSystem();
@@ -98,18 +99,23 @@ public class Player : Entity, IRespawn
     }
     private new void FixedUpdate()
     {
-        cam.CameraMovement();
         movement.MovePlayer();
+        cam.CameraMovement();
+        
     }
 
 
-
+    public void teleport(GameObject location)
+    {
+        this.gameObject.transform.position = location.transform.position;
+    }
+        
     public void GainExperience(int _exp)
     {
         //if max level just return
         LevelUp = false;
         this.Experience += _exp * 1;
-        Debug.Log("pLAYER HAVE" + Character.Experience + "Character needs" + LevelManager.RequiredExperience(Character.Level));
+        Debug.Log("pLAYER HAVE " + Character.Experience + " Character needs " + LevelManager.RequiredExperience(Character.Level));
         
         personalUi.UpdateExp();
         // && Character experience is equal to require experience
