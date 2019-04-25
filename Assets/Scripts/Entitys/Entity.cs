@@ -101,7 +101,12 @@ public class Entity : InteractObject,IGetChild
         return bonus;
     }
 
+<<<<<<< HEAD
+
+    public virtual void RecieveDamage(uint _dmg)
+=======
     public virtual void RecieveDamage(int _dmg)
+>>>>>>> 8fa4f9b65f9394ce1bf557b3386017816001b548
     {
         // if object is alive
         if (Alive)

@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+<<<<<<< HEAD
+public class Monster :Entity
+{
+    Player Target;
+=======
 public class Monster : Entity,IRespawn
 {
     Player target;
@@ -18,9 +23,15 @@ public class Monster : Entity,IRespawn
 
     public float time { get; set; }
 
+>>>>>>> 8fa4f9b65f9394ce1bf557b3386017816001b548
     // Start is called before the first frame update
     private void Start()
     {
+<<<<<<< HEAD
+        
+    }
+
+=======
         Child = new List<GameObject>();
         GetChildren();
         
@@ -45,9 +56,15 @@ public class Monster : Entity,IRespawn
     {
        
     }
+>>>>>>> 8fa4f9b65f9394ce1bf557b3386017816001b548
     // Update is called once per frame
     new void Update()
     {
+<<<<<<< HEAD
+        
+    }
+    public override void Interact()
+=======
         Respawn(SpawnRate);
         
 
@@ -137,6 +154,7 @@ public void NameColour()
     }
 
 public override void Interact()
+>>>>>>> 8fa4f9b65f9394ce1bf557b3386017816001b548
     {
         base.Interact();
         target = FindObjectOfType<Player>();
